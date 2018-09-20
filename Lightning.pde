@@ -1,3 +1,5 @@
+int startX = 0, startY = 250, endX = 0, endY = 250;
+
 void setup()
 {
   size(500,500);
@@ -17,8 +19,13 @@ void draw()
 	triangle(175,300,175,75,210,75);
 	triangle(325,300,325,75,290,75);
 	rect(175,0,150,75);
-	fill(225,225,225);
+	fill(0,0,0);
 	arc(250,75,20,10,PI,TWO_PI);
+	while (endX < 500){
+		endX = startX + ((int)(Math.Random*10));
+		endY = startY + ((int)(Math.Random*10));
+		line(startX,startY,endX,endY);
+	}
 	//arc(175,);
 	//arc(x, y, width, height, HALF_PI, PI + QUARTER_PI);
 }
