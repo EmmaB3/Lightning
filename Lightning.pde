@@ -1,9 +1,8 @@
-int startX = 0, startY = 250, endX = 0, endY = 250;
-
 void setup()
 {
   size(500,500);
   background(0,0,0);
+  noLoop();
   //background(131, 156, 173);
 }
 void draw()
@@ -21,11 +20,7 @@ void draw()
 	rect(175,0,150,75);
 	fill(0,0,0);
 	arc(250,75,20,10,PI,TWO_PI);
-	while (endX < 500){
-		endX = startX + ((int)(Math.Random*10));
-		endY = startY + ((int)(Math.Random*10));
-		line(startX,startY,endX,endY);
-	}
+  stroke(225);
 	//arc(175,);
 	//arc(x, y, width, height, HALF_PI, PI + QUARTER_PI);
 }
@@ -57,6 +52,12 @@ class Balloon{
 */
 void mousePressed()
 {
-
+  int startX = 240 + (int)(Math.random()*20), startY = 150, endX = 0, endY = 0;
+  while ((endX > 0 || endX < 500) && endY > 0){
+    endX = startX + ((int)(Math.random()*10));
+    endY = startY - ((int)(Math.random()*10));
+    line(startX,startY,endX,endY);
+    startX = endX;
+    startY = endY;
+  }
 }
-
