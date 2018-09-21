@@ -2,11 +2,24 @@ void setup()
 {
   size(500,500);
   background(0,0,0);
-  noLoop();
-  //background(131, 156, 173);
+  backdrop();
+  
 }
+
 void draw()
 {
+}
+
+void backdrop(){
+	tree();
+	fill(131,156,173);
+	textSize(30);
+	textAlign(CENTER);
+	text("Click To Add Branches",250,450);
+
+}
+
+void tree(){
 	fill(131,156,173);
 	noStroke();
 	rect(0,0,175,300);
@@ -20,44 +33,18 @@ void draw()
 	rect(175,0,150,75);
 	fill(0,0,0);
 	arc(250,75,20,10,PI,TWO_PI);
-  stroke(225);
-	//arc(175,);
-	//arc(x, y, width, height, HALF_PI, PI + QUARTER_PI);
 }
  
-/*
-Balloon b = new Balloon(100,100);
-void setup{
-	
-}
-void draw{
-	b.show();
-	b.inflate();
-}
-class Balloon{
-	int mySize, myX, mY;
-	void inflate(){
-		mySize ++;
-	}
-	void show(){
-		fill(0,0,0);
-		ellipse(myX,myY,mySize,mySize);
-	}
-	Balloon(int x, int y){
-		mySize = 5;
-		myX = x;
-		myY = y;
-	} //constructor
-}
-*/
 void mousePressed()
 {
-  int startX = 240 + (int)(Math.random()*20), startY = 150, endX = 0, endY = 0;
-  while ((endX > 0 || endX < 500) && endY > 0){
-    endX = startX + ((int)(Math.random()*10));
-    endY = startY - ((int)(Math.random()*10));
-    line(startX,startY,endX,endY);
-    startX = endX;
-    startY = endY;
-  }
+  	stroke(0);
+	strokeWeight((int)(Math.random()*5) + 1);
+	int startX = 240 + (int)(Math.random()*21), startY = 150, endX = 1, endY = 1;
+ 	while ((endX > 0 || endX < 500) && endY > 0){
+	    endX = startX + ((int)(Math.random()*40) - 20);
+	    endY = startY - ((int)(Math.random()*10));
+	    line(startX,startY,endX,endY);
+	    startX = endX;
+	    startY = endY;
+	}
 }
